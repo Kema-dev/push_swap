@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_project.h                                       :+:      :+:    :+:   */
+/*   ft_push_operation_p.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/29 18:34:35 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2021/03/23 12:36:25 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/24 10:49:11 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_PROJECT_H
-# define MY_PROJECT_H
+#include "push_swap.h"
 
-# include "../libs/libkema/includes/libkema.h"
-# include <stdbool.h>
+void	ft_push_pa(t_stack *stack)
+{
+	t_dish	*buf;
 
-# define SUCCESS		0
-# define STR_SUCCESS	"Operation success!"
-# define FAILURE		-1
-# define STR_FAILURE	"Operation failure!"
+	if (stack->b)
+	{
+		buf = stack->b->next;
+		stack->b->next = stack->a;
+		stack->a = stack->b;
+		stack->b = buf;
+	}
+}
 
-//	*	struct declarations
+void	ft_push_pb(t_stack *stack)
+{
+	t_dish	*buf;
 
-//	*	function prototypes
-
-//	*	main.c
-int	main(int argc, char **argv, char **envp);
-
-#endif
+	if (stack->a)
+	{
+		buf = stack->a->next;
+		stack->a->next = stack->b;
+		stack->b = stack->a;
+		stack->a = buf;
+	}
+}

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/22 11:28:27 by jjourdan         ###   ########lyon.fr    #
+#    Created: 2021/03/24 11:06:04 by jjourdan          #+#    #+#              #
+#    Updated: 2021/03/25 14:21:21 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,85 +20,46 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	my_project
-
-ARGS		=	foo bar
-
-CC			=	gcc
-
 RM			=	rm -f
 
-FLAGS		=	-Wall -Wextra -Werror
+MAKE_SUB	=	-make -C
 
-DEBUG_FLAGS	=	-Wall -Wextra -fsanitize=address
+all:
+				@$(MAKE_SUB) check
+				@$(MAKE_SUB) push
 
-DEBUG_OUT	=	debug.out
-
-INCS_DIR	=	includes/
-
-INCS		=	my_project.h
-
-INCS_FULL	=	$(addprefix $(INCS_DIR), $(INCS))
-
-SRCS_DIR	=	sources/
-
-SRCS		=	main.c
-
-SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
-
-OBJS		=	$(SRCS_FULL:.c=.o)
-
-MAKE_SUB	=	make -C
-
-LIBS_DIR	=	libs/
-
-LIBS		=	libkema/
-
-LIBS_FULL	=	$(addprefix $(LIBS_DIR), $(LIBS))
-
-LIBS_FILES	=	libs/libkema/libkema.a
-
-all:			libraries $(NAME)
-
-%.o: 			%.c $(INCS_FULL)
-				$(CC) $(FLAGS) -I $(INCS_DIR) -c $< -o $@
-
-$(NAME): 		$(OBJS)
-				$(CC) -I $(INCS_DIR) $(OBJS) $(LIBS_FILES) -o $(NAME)
-
-libraries:
-				$(foreach lib,$(LIBS_FULL), $(MAKE_SUB) $(lib))
-
-norme:			fclean
+norme:
 				printf "\033c"
-				$(foreach lib,$(LIBS_FULL), norminette $(lib))
-				norminette $(SRCS_DIR)
-				norminette $(INCS_DIR)
+				@norminette libs
+				@$(MAKE_SUB) check norme
+				@$(MAKE_SUB) push norme
 
-norme_check:	fclean
+norme_check:
 				printf "\033c"
-				$(foreach lib,$(LIBS_FULL), norminette $(lib)) | grep " KO!" | wc -l
-				norminette $(SRCS_DIR) | grep " KO!" | wc -l
-				norminette $(INCS_DIR) | grep " KO!" | wc -l
+				@norminette libs
+				@$(MAKE_SUB) check norme_check
+				@$(MAKE_SUB) push norme_check
 
-debug:			libraries $(OBJS)
-				$(CC) -I $(INCS_DIR) $(DEBUG_FLAGS) $(OBJS) $(LIBS_FILES) -o $(DEBUG_OUT)
-				printf "\033c"
-				./$(DEBUG_OUT) $(ARGS)
+test:			all
+				ARG="1 2 3 4 5 6 7"; ./push/push_swap $$ARG | ./check/checker $$ARG
+
+count:			all
+				ARG="1 2 3 4 5 6 7"; ./push/push_swap $$ARG | wc -l
 
 leaks:			all
 				printf "\033c"
-				leaks --atExit -- ./$(NAME) $(ARGS)
+				ARG="1 2 3 4 5 6 7"; leaks --atExit -- ./push/push_swap $$ARG | leaks --atExit -- ./check/checker $$ARG
 
 clean:
-				$(RM) $(OBJS)
-				$(foreach lib_dir,$(LIBS_FULL), $(MAKE_SUB) $(lib_dir) clean)
+				@$(MAKE_SUB) check clean
+				@$(MAKE_SUB) push clean
 
-fclean:			clean
-				$(RM) $(NAME)
-				$(RM) $(DEBUG_OUT)
-				$(foreach lib_dir,$(LIBS_FULL), $(MAKE_SUB) $(lib_dir) fclean)
+fclean:
+				@$(MAKE_SUB) check fclean
+				@$(MAKE_SUB) push fclean
+				@$(RM) checker
+				@$(RM) push_swap
 
 re:				fclean all
 
-.PHONY: all, libs, norme, norme_check, debug, leaks, clean, fclean, re
+.PHONY: all, libs, norme, norme_check, test, count, leaks, clean, fclean, re

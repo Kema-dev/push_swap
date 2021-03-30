@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_operation_p.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/29 18:34:37 by jjourdan         ###   ########lyon.fr   */
+/*   Created: 2021/03/23 12:36:25 by jjourdan          #+#    #+#             */
+/*   Updated: 2021/03/24 10:45:28 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "my_project.h"
+#include "checker.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_check_pa(t_stack *stack)
 {
-	t_list	*mem;
-	char	*str;
+	t_dish	*buf;
 
-	(void)argc;
-	(void)argv;
-	(void)envp;
-	mem = NULL;
-	str = kemalloc(&mem, 10, sizeof(char));
-	ft_memcpy(str, "Hello,world!", 13);
-	ft_lstprint("%s", mem);
-	ft_kema_error(SUCCESS, &mem, &free);
-	return (SUCCESS);
+	if (stack->b)
+	{
+		buf = stack->b->next;
+		stack->b->next = stack->a;
+		stack->a = stack->b;
+		stack->b = buf;
+	}
 }
-// ? exit(ft_kema_error()) if exit accepted
+
+void	ft_check_pb(t_stack *stack)
+{
+	t_dish	*buf;
+
+	if (stack->a)
+	{
+		buf = stack->a->next;
+		stack->a->next = stack->b;
+		stack->b = stack->a;
+		stack->a = buf;
+	}
+}
