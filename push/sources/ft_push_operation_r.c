@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:49:59 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/25 13:04:34 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 15:29:00 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_push_ra(t_stack *stack)
 		buf->next->next = NULL;
 		stack->a = buf_2;
 	}
+	ft_dprintf(STDOUT_FILENO, "ra\n");
 }
 
 void	ft_push_rb(t_stack *stack)
@@ -44,6 +45,7 @@ void	ft_push_rb(t_stack *stack)
 		buf->next->next = NULL;
 		stack->b = buf_2;
 	}
+	ft_dprintf(STDOUT_FILENO, "rb\n");
 }
 
 void	ft_push_rr(t_stack *stack)
@@ -71,4 +73,5 @@ void	ft_push_rr(t_stack *stack)
 		buf->next->next = NULL;
 		stack->b = buf_2;
 	}
+	ft_dprintf(STDOUT_FILENO, "rr\n");
 }

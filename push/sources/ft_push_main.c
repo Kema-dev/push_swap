@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 11:31:23 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 14:12:14 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	main(int argc, char **argv)
 			exit(ft_kema_error(INVALID_LIST, &mem, &free));
 		ft_push_lstadd_back(&stack->a, ft_push_lstnew(mem, nb));
 	}
+	ft_push_chose_algo(mem, stack);
 	exit(ft_kema_error(SUCCESS, &mem, &free));
 }

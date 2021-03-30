@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 13:29:56 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 10:44:02 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 16:22:31 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	ft_kema_error(int errcode, t_list **lst, void (*del)(void*))
 	str[8] = NULL;
 	str[9] = NULL;
 	ft_lstclear(lst, del);
-	if (errcode < 0)
-		ft_dprintf(STDERR_FILENO, "Error %d: %s\n", errcode, str[-errcode]);
-	else if (errcode == SUCCESS)
-		ft_dprintf(STDOUT_FILENO, STR_SUCCESS);
-	else
-		ft_dprintf(STDERR_FILENO, "Error %d: %s\n", errcode, strerror(ENOMEM));
+	//if (errcode < 0)
+	//	ft_dprintf(STDERR_FILENO, "Error %d: %s\n", errcode, str[-errcode]);
+	//else if (errcode == SUCCESS)
+	//	ft_dprintf(STDOUT_FILENO, STR_SUCCESS);
+	//else
+	//	ft_dprintf(STDERR_FILENO, "Error %d: %s\n", errcode, strerror(errcode));
 	return (errcode);
 }
