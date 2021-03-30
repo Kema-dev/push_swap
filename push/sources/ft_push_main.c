@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 10:48:58 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 11:31:23 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		exit(ft_kema_error(NO_LIST, &mem, &free));
-	stack = kemalloc(&mem, 1, sizeof(t_stack));
+	stack = kemalloc_exit(&mem, 1, sizeof(t_stack));
 	stack->a = NULL;
 	stack->b = NULL;
 	i = 0;
