@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/30 10:31:00 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/30 11:39:24 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,16 +85,16 @@ norme_check:	fclean
 debug:			libraries $(OBJS)
 				$(CC) -I $(INCS_DIR) $(DEBUG_FLAGS) $(OBJS) $(LIBS_FILES) -o $(DEBUG_OUT)
 				printf "\033c"
-				$(ARGS); ./$(DEBUG_OUT) $$ARG
+				ARG="1 2 3 4 5 6 7"; ./$(DEBUG_OUT) $$ARG
 
 test:			libraries $(OBJS)
 				$(CC) -I $(INCS_DIR) $(FLAGS) $(OBJS) $(LIBS_FILES) -o $(NAME)
 				printf "\033c"
-				$(ARGS); ./$(NAME) $$ARG
+				ARG="1 2 3 4 5 6 7"; ./$(NAME) $$ARG
 
 leaks:			all
 				printf "\033c"
-				leaks --atExit -- ./$(NAME) $(ARGS)
+				leaks --atExit -- ARG="1 2 3 4 5 6 7"; ./$(NAME) $$ARG
 
 clean:
 				@$(RM) $(OBJS)

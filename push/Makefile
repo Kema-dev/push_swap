@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/30 10:34:31 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/30 11:41:53 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,15 +86,15 @@ debug:			libraries $(OBJS)
 				printf "\033c"
 				$(CC) -I $(INCS_DIR) $(DEBUG_FLAGS) $(OBJS) $(LIBS_FILES) -o $(DEBUG_OUT)
 				printf "\033c"
-				$(ARGS); ./$(DEBUG_OUT) $$ARG
+				ARG="1 2 3 4 5 6 7"; ./push_swap $$ARG
 
 test:			libraries $(OBJS)
 				$(CC) -I $(INCS_DIR) $(FLAGS) $(OBJS) $(LIBS_FILES) -o $(NAME)
 				printf "\033c"
-				$(ARGS); ./$(NAME) $$ARG
+				ARG="1 2 3 4 5 6 7"; ./push_swap $$ARG
 
 leaks:			all
-				leaks --atExit -- ./$(NAME) $(ARGS)
+				leaks --atExit -- ARG="1 2 3 4 5 6 7"; ./push_swap $$ARG
 
 clean:
 				@$(RM) $(OBJS)
