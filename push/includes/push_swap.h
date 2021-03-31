@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 14:37:41 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:44:52 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ int			ft_push_check_sort(t_dish *val);
 void		ft_push_3_val(t_stack *stack, int *tab);
 
 // ? ft_push_5_val.c
-void		ft_push_5_val(t_list *mem, t_stack *stack, int *tab);
+void		ft_push_5_val(t_list *mem, t_stack *stack);
 
 #endif

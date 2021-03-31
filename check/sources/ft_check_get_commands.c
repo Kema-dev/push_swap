@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:47:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 13:23:02 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:46:57 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_check_order(t_list *mem, t_stack *stack, t_commands *commands)
 	return_value = SUCCESS;
 	ft_check_apply_commands(mem, stack, commands);
 	if (stack->b)
-		return_value = STACK_B_NOT_EMPTY;
+		return (STACK_B_NOT_EMPTY);
 	buf = stack->a;
 	while (buf->next)
 	{
