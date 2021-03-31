@@ -54,5 +54,5 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 	if (size <= 3)
 		ft_push_3_val(stack, tab);
 	else if (size <= 5)
-		ft_push_5_val(mem, stack);
+		ft_push_5_val(mem, stack, tab);
 }

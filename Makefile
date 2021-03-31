@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/24 11:06:04 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/31 14:41:15 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/31 17:04:21 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RM			=	rm -f
 
 MAKE_SUB	=	-make -C
 
-ARG			=	 3 1 5 4 2
+ARG			=	3 1 5 4 2
 
 all:
 				@$(MAKE_SUB) check
@@ -53,7 +53,6 @@ leaks:			all
 				ARG="$(ARG)"; leaks --atExit -- ./push/push_swap $$ARG | leaks --atExit -- ./check/checker $$ARG
 
 push:			all
-				printf "\33c"
 				ARG="$(ARG)"; ./push/push_swap $$ARG
 
 clean:
