@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 02:01:54 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 11:32:13 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:14:29 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -72,9 +73,9 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void \
 						(*del)(void *));
 void				ft_lstprint(char *format, t_list *lst);
-void				*kemalloc(t_list	**lst, size_t nmemb, size_t size);
-void				*kemalloc_exit(t_list	**lst, size_t nmemb, size_t size);
+void				*kemalloc(t_list	**lst, size_t nmemb, size_t size, bool print);
+void				*kemalloc_exit(t_list	**lst, size_t nmemb, size_t size, bool print);
 int					ft_kema_error(int errcode, t_list **lst, \
-						void (*del)(void*));
+						void (*del)(void*), bool print);
 
 #endif

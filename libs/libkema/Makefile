@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 11:26:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/29 13:31:46 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/31 14:36:33 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ INC_DIR	=	includes/
 
 INCLUDES	=	libft.h \
 				gnl.h \
-				ft_dprintf.h
+				ft_dprintf.h \
+				libkema.h
 
 INC_FULL	=	$(addprefix $(INC_DIR), $(INCLUDES))
 

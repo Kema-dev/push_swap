@@ -27,30 +27,32 @@ int		ft_push_lstsize(t_dish *dish)
 	return (size);
 }
 
+int		*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size)
+{
+	int		*tab;
+	int		i;
+	t_dish	*buf;
+
+	tab = kemalloc_exit(&mem, size, sizeof(int), NO_PRINT);
+	i = 0;
+	buf = stack->a;
+	while (buf)
+	{
+		tab[i++] = buf->value;
+		buf = buf->next;
+	}
+	return (tab);
+}
+
 void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 {
 	size_t	size;
+	int		*tab;
 
 	size = ft_push_lstsize(stack->a);
+	tab = ft_push_list_to_tab(mem, stack, size);
 	if (size <= 3)
-		ft_push_3_val(mem, stack);
-	(void)mem;
-	//else if (size <= 5)
-	//{
-	//	ft_push_5_val(mem, stack);
-	//	ft_push_3_val(mem, stack);
-	//}
-	//else if (size <= 100)
-	//{
-	//	ft_push_100_val(mem, stack);
-	//	ft_push_5_val(mem, stack);
-	//	ft_push_3_val(mem, stack);
-	//}
-	//else
-	//{
-	//	ft_push_500_val(mem, stack);
-	//	ft_push_100_val(mem, stack);
-	//	ft_push_5_val(mem, stack);
-	//	ft_push_3_val(mem, stack);
-	//}
+		ft_push_3_val(stack, tab);
+	else if (size <= 5)
+		ft_push_5_val(mem, stack, tab);
 }

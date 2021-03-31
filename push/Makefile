@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/30 16:29:43 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/03/31 14:20:55 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ SRCS		=	ft_push_main.c \
 				ft_push_operation_rr.c \
 				ft_push_get_commands.c \
 				ft_push_sort_values.c \
-				ft_push_3_val.c
+				ft_push_3_val.c \
+				ft_push_5_val.c
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
 

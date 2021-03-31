@@ -6,11 +6,43 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 16:31:10 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:37:49 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+int	ft_check_check_duplicates(int nb, t_dish *a)
+{
+	t_dish	*buf;
+
+	buf = a;
+	while (buf)
+	{
+		if (buf->value == nb)
+			return (FAILURE);
+		buf = buf->next;
+	}
+	return (SUCCESS);
+}
+
+int	ft_check_check_arg(char **argv)
+{
+	ssize_t	i;
+	ssize_t	j;
+
+	i = 0;
+	while (argv[++i])
+	{
+		j = -1;
+		while (argv[i][++j])
+		{
+			if ((argv[i][j] > '9') || (argv[i][j] < '0'))
+				return (FAILURE);
+		}
+	}
+	return (SUCCESS);
+}
 
 int	main(int argc, char **argv)
 {
@@ -22,8 +54,10 @@ int	main(int argc, char **argv)
 	int			nb;
 
 	if (argc < 2)
-		exit(ft_kema_error(NO_LIST, &mem, &free));
-	stack = kemalloc_exit(&mem, 1, sizeof(t_stack));
+		exit(ft_kema_error(NO_LIST, &mem, &free, PRINT));
+	if (ft_check_check_arg(argv) != SUCCESS)
+		exit(ft_kema_error(INVALID_LIST, &mem, &free, PRINT));
+	stack = kemalloc_exit(&mem, 1, sizeof(t_stack), PRINT);
 	i = 0;
 	stack->a = NULL;
 	stack->b = NULL;
@@ -31,7 +65,9 @@ int	main(int argc, char **argv)
 	{
 		nb = ft_atoi(argv[i]);
 		if ((nb == 0) && (argv[i][0] != '0'))
-			exit(ft_kema_error(INVALID_LIST, &mem, &free));
+			exit(ft_kema_error(INVALID_LIST, &mem, &free, PRINT));
+		if (ft_check_check_duplicates(nb, stack->a) != SUCCESS)
+			exit(ft_kema_error(DUPLICATE, &mem, &free, PRINT));
 		ft_check_lstadd_back(&stack->a, ft_check_lstnew(mem, nb));
 	}
 	command = NULL;
@@ -41,5 +77,5 @@ int	main(int argc, char **argv)
 	ft_check_print_stack(stack->a); // ! TO BE REMOVED
 	ft_dprintf(STDOUT_FILENO, "stack b:\n"); // ! TO BE REMOVED
 	ft_check_print_stack(stack->b); // ! TO BE REMOVED
-	exit(ft_kema_error(return_value, &mem, &free));
+	exit(ft_kema_error(return_value, &mem, &free, PRINT));
 }

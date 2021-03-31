@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:47:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 10:52:13 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:23:02 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_check_apply_commands(t_list *mem, t_stack *stack, t_commands *command)
 		else if (ft_strncmp("rrr", buf->value, 4) == 0)
 			ft_check_rrr(stack);
 		else
-			exit(ft_kema_error(WRONG_COMMAND, &mem, &free));
+			exit(ft_kema_error(WRONG_COMMAND, &mem, &free, PRINT));
 		buf = buf->next;
 	}
 }
@@ -75,11 +75,9 @@ t_commands	*ft_check_get_commands(t_list *mem, t_commands *command)
 	while (get_next_line(STDIN_FILENO, &text))
 	{
 		if (!text)
-			exit(ft_kema_error(NO_COMMAND, &mem, &free));
+			exit(ft_kema_error(NO_COMMAND, &mem, &free, PRINT));
 		ft_check_command_lstadd_back(&command, ft_check_command_lstnew(mem, text));
 		i++;
 	}
-	if (i < 1)
-		exit(ft_kema_error(NO_COMMAND, &mem, &free));
 	return (command);
 }

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 10:51:31 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:32:49 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_commands {
 }	t_commands;
 
 // ? main.c
+int			ft_check_check_duplicates(int nb, t_dish *a);
+int			ft_check_check_arg(char **argv);
 int			main(int argc, char **argv);
 
 // ? ft_check_list_manip.c

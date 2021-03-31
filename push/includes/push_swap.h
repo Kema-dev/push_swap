@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/30 15:28:00 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:37:41 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../../libs/libkema/includes/libkema.h"
-
-# define SUCCESS		0
-# define FAILURE		-1
-# define NO_LIST		-2
-# define INVALID_LIST	-3
 
 typedef struct s_dish {
 	int				value;
@@ -36,6 +31,7 @@ typedef struct s_commands {
 }	t_commands;
 
 // ? main.c
+int			ft_push_check_arg(char **argv);
 int			main(int argc, char **argv);
 
 // ? ft_push_list_manip.c
@@ -72,9 +68,14 @@ void		ft_push_get_stack_size(t_list *mem, t_stack *stack);
 
 // ? ft_push_sort_values.c
 int			ft_push_lstsize(t_dish *dish);
+int			*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size);
 void		ft_push_chose_algo(t_list *mem, t_stack *stack);
 
 // ? ft_push_3_val.c
-void		ft_push_3_val(t_list *mem, t_stack *stack);
+int			ft_push_check_sort(t_dish *val);
+void		ft_push_3_val(t_stack *stack, int *tab);
+
+// ? ft_push_5_val.c
+void		ft_push_5_val(t_list *mem, t_stack *stack, int *tab);
 
 #endif
