@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 16:53:21 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 14:13:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ typedef struct s_commands {
 	char				*value;
 	struct s_commands	*next;
 }	t_commands;
+
+typedef struct s_bound {
+	int	min;
+	int	max;
+	int	nb;
+}	t_bound;
 
 // ? main.c
 int			ft_push_check_arg(char **argv);
@@ -79,5 +85,8 @@ void		ft_push_3_val(t_stack *stack, int *tab);
 int			ft_push_find_idx(int *tab, int *full);
 void		ft_push_sort_tab(int *tab);
 void		ft_push_5_val(t_list *mem, t_stack *stack, int *full);
+
+// ? ft_push_100_val.c
+int			ft_push_find_nb_rottions(t_dish *dish, int min, int max, int nb);
 
 #endif
