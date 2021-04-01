@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:52:41 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 17:59:53 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 10:56:48 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	ft_push_sort_tab(int *tab)
 void	ft_push_5_val(t_list *mem, t_stack *stack, int *full)
 {
 	int	*tab;
-	int	hole;
 
+	(void)full;
 	while (ft_push_lstsize(stack->a) > 3)
 		ft_push_pb(stack);
 	tab = ft_push_list_to_tab(mem, stack, ft_push_lstsize(stack->a));
