@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 10:21:07 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 14:00:19 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 14:46:35 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ t_info	*ft_push_get_infos(int *tab, t_info *info)
 	while (i < (info->nb / 3))
 	{
 		info->group_1_high = tab[i];
-		info->group_1_size = grp_size;
 		grp_size++;
+		info->group_1_size = grp_size;
 		i++;
 	}
 	info->group_2_low = tab[i];
@@ -53,8 +53,8 @@ t_info	*ft_push_get_infos(int *tab, t_info *info)
 	while (i < (2 * info->nb / 3))
 	{
 		info->group_2_high = tab[i];
-		info->group_2_size = grp_size;
 		grp_size++;
+		info->group_2_size = grp_size;
 		i++;
 	}
 	info->group_3_low = tab[i];
@@ -62,8 +62,8 @@ t_info	*ft_push_get_infos(int *tab, t_info *info)
 	while (i < info->nb)
 	{
 		info->group_3_high = tab[i];
-		info->group_3_size = grp_size;
 		grp_size++;
+		info->group_3_size = grp_size;
 		i++;
 	}
 	return (info);

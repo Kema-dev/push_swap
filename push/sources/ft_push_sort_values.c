@@ -62,6 +62,10 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 	info->nb = size;
 	ft_push_get_infos(tab, info);
 	ft_push_x2_max_to_b(info, stack);
+	ft_dprintf(STDOUT_FILENO, "STACK A:\n");
+	ft_push_print_stack(stack->a);
+	ft_dprintf(STDOUT_FILENO, "STACK B:\n");
+	ft_push_print_stack(stack->b);
 	//ft_push_to_a(stack);
 	//ft_push_min_x1_to_b(info, stack);
 	//ft_push_to_a(stack);
