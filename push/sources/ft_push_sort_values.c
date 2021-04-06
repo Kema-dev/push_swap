@@ -53,6 +53,14 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 	size = ft_push_lstsize(stack->a);
 	tab = ft_push_list_to_tab(mem, stack, size);
 	if (size <= 3)
+	{
 		ft_push_3_val(stack, tab);
+		return ;
+	}
 	info = ft_push_get_infos(mem, tab);
+	ft_push_x2_max_to_b(info, stack);
+	ft_push_to_a(stack);
+	ft_push_min_x1_to_b(info, stack);
+	ft_push_to_a(stack);
+	ft_push_finish_rotate(info, stack);
 }
