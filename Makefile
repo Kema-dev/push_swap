@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/24 11:06:04 by jjourdan          #+#    #+#              #
-#    Updated: 2021/04/01 14:01:56 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/04/06 13:59:56 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RM			=	rm -f
 
 MAKE_SUB	=	-make -C
 
-ARG			=	3 1 5 4 2
+ARG			=	3 1 2 4 10 7 9 8 5 6
 
 all:
 				@$(MAKE_SUB) check

@@ -38,7 +38,8 @@ int	*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size)
 	buf = stack->a;
 	while (buf)
 	{
-		tab[i++] = buf->value;
+		tab[i] = buf->value;
+		i++;
 		buf = buf->next;
 	}
 	return (tab);
@@ -57,10 +58,12 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 		ft_push_3_val(stack, tab);
 		return ;
 	}
-	info = ft_push_get_infos(mem, tab);
+	info = kemalloc_exit(&mem, 1, sizeof(t_info), NO_PRINT);
+	info->nb = size;
+	ft_push_get_infos(tab, info);
 	ft_push_x2_max_to_b(info, stack);
-	ft_push_to_a(stack);
-	ft_push_min_x1_to_b(info, stack);
-	ft_push_to_a(stack);
-	ft_push_finish_rotate(info, stack);
+	//ft_push_to_a(stack);
+	//ft_push_min_x1_to_b(info, stack);
+	//ft_push_to_a(stack);
+	//ft_push_finish_rotate(info, stack);
 }

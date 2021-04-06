@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 11:29:30 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 13:59:58 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,10 @@ int			ft_push_check_sort(t_dish *val);
 void		ft_push_3_val(t_stack *stack, int *tab);
 
 // ? ft_push_get_infos.c
-int			ft_push_sort_tab(int *tab);
-t_info		*ft_push_get_infos(t_list *mem, int *tab);
+void		ft_push_sort_tab(int *tab, int size);
+t_info		*ft_push_get_infos(int *tab, t_info *info);
+
+// ? ft_push_to_b.c
+void		ft_push_x2_max_to_b(t_info *info, t_stack *stack);
 
 #endif

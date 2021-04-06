@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:00:49 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 11:29:25 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 13:00:41 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,17 @@ void	ft_push_x2_max_to_b(t_info *info, t_stack *stack)
 	else
 		info->group_3_dir = false;
 	nb_pushed = 0;
-	while (nb_pushed < info->group_3_size)
-	{
-			
-	}
+	//while (nb_pushed < info->group_3_size)
+	//{
+	//	if ((stack->a->value > info->group_3_low) && (stack->a->value \
+	//				< info->group_3_high))
+	//	{
+	//		ft_push_pb(stack);
+	//		nb_pushed++;
+	//	}
+	//	else if (info->group_3_dir == true)
+	//		ft_push_ra(stack);
+	//	else
+	//		ft_push_rra(stack);
+	//}
 }
