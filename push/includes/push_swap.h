@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/01 14:13:07 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 10:30:16 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,20 @@ typedef struct s_commands {
 	struct s_commands	*next;
 }	t_commands;
 
-typedef struct s_bound {
-	int	min;
-	int	max;
-	int	nb;
-}	t_bound;
+typedef struct s_info {
+	int		min;
+	int		max;
+	int		nb;
+	int		group_1_low;
+	int		group_1_high;
+	bool	group_1_dir;
+	int		group_2_low;
+	int		group_2_high;
+	bool	group_2_dir;
+	int		group_3_low;
+	int		group_3_high;
+	bool	group_3_dir;
+}	t_info;
 
 // ? main.c
 int			ft_push_check_arg(char **argv);
@@ -81,12 +90,8 @@ void		ft_push_chose_algo(t_list *mem, t_stack *stack);
 int			ft_push_check_sort(t_dish *val);
 void		ft_push_3_val(t_stack *stack, int *tab);
 
-// ? ft_push_5_val.c
-int			ft_push_find_idx(int *tab, int *full);
-void		ft_push_sort_tab(int *tab);
-void		ft_push_5_val(t_list *mem, t_stack *stack, int *full);
-
-// ? ft_push_100_val.c
-int			ft_push_find_nb_rottions(t_dish *dish, int min, int max, int nb);
+// ? ft_push_get_infos.c
+int			ft_push_sort_tab(int *tab);
+t_info		*ft_push_get_infos(t_list *mem, int *tab);
 
 #endif

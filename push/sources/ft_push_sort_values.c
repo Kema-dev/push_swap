@@ -46,6 +46,7 @@ int		*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size)
 
 void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 {
+	t_info	*info;
 	size_t	size;
 	int		*tab;
 
@@ -53,6 +54,5 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 	tab = ft_push_list_to_tab(mem, stack, size);
 	if (size <= 3)
 		ft_push_3_val(stack, tab);
-	else if (size <= 5)
-		ft_push_5_val(mem, stack, tab);
+	info = ft_push_get_infos(mem, tab);
 }
