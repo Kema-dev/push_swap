@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:47:55 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 14:35:01 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 11:24:26 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "ft_dprintf.h"
 # include <errno.h>
 
-# define PRINT					true
-# define NO_PRINT				false
+# define PRINT					1
+# define NO_PRINT				0
 # define SUCCESS				0
 # define STR_SUCCESS			"OK\n"
 # define FAILURE				-1

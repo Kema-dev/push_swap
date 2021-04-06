@@ -6,13 +6,14 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:47:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 14:46:57 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 11:25:20 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ft_check_apply_commands(t_list *mem, t_stack *stack, t_commands *command)
+void	ft_check_apply_commands(t_list *mem, t_stack *stack, \
+			t_commands *command)
 {
 	t_commands	*buf;
 
@@ -76,7 +77,8 @@ t_commands	*ft_check_get_commands(t_list *mem, t_commands *command)
 	{
 		if (!text)
 			exit(ft_kema_error(NO_COMMAND, &mem, &free, PRINT));
-		ft_check_command_lstadd_back(&command, ft_check_command_lstnew(mem, text));
+		ft_check_command_lstadd_back(&command, \
+					ft_check_command_lstnew(mem, text));
 		i++;
 	}
 	return (command);

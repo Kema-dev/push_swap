@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		ft_push_lstsize(t_dish *dish)
+int	ft_push_lstsize(t_dish *dish)
 {
 	size_t	size;
 	t_dish	*buf;
@@ -27,7 +27,7 @@ int		ft_push_lstsize(t_dish *dish)
 	return (size);
 }
 
-int		*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size)
+int	*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size)
 {
 	int		*tab;
 	int		i;

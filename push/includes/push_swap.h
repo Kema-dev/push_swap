@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 10:30:16 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/06 11:29:30 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,15 @@ typedef struct s_info {
 	int		group_1_low;
 	int		group_1_high;
 	bool	group_1_dir;
+	size_t	group_1_size;
 	int		group_2_low;
 	int		group_2_high;
 	bool	group_2_dir;
+	size_t	group_2_size;
 	int		group_3_low;
 	int		group_3_high;
 	bool	group_3_dir;
+	size_t	group_3_size;
 }	t_info;
 
 // ? main.c
