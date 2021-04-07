@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 17:42:32 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/07 17:45:20 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 18:23:33 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ void	ft_push_group_lstadd_back(t_group **alst, t_group *new)
 			buf = buf->next;
 		buf->next = new;
 	}
+}
+
+void	ft_push_group_lstadd_front(t_group **alst, t_group *new)
+{
+	if (!new || !alst)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }
