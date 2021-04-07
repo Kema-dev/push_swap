@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/07 12:13:59 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 16:25:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	main(int argc, char **argv)
 	int			nb;
 	t_stack		*stack;
 	t_list		*mem;
-
 	if (argc < 2)
 		exit(ft_kema_error(NO_LIST, &mem, &free, NO_PRINT));
 	if (ft_push_check_arg(argv) != SUCCESS)

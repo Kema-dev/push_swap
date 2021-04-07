@@ -81,24 +81,24 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 		ft_push_3_val(stack, tab);
 		return ;
 	}
-	info = kemalloc_exit(&mem, 1, sizeof(t_info), NO_PRINT);
-	info->nb = size;
-	ft_push_get_infos(tab, info);
-	ft_push_x2_max_to_b(info, stack);
-	ft_push_b_to_a(mem, stack);
-	ft_push_0_x1_to_b(info, stack);
-	ft_push_b_to_a(mem, stack);
-	ft_push_g2(info, stack);
-	ft_push_b_to_a(mem, stack);
-	// ! ft_dprintf(STDOUT_FILENO, "STACK A:\n");
-	// ! ft_push_print_stack(stack->a);
-	// ! ft_dprintf(STDOUT_FILENO, "STACK B:\n");
-	// ! ft_push_print_stack(stack->b);
-	// ! ft_dprintf(STDOUT_FILENO, "\n\n");
-	ft_push_finish_rotate(info, stack);
-	// ! ft_dprintf(STDOUT_FILENO, "STACK A:\n");
-	// ! ft_push_print_stack(stack->a);
-	// ! ft_dprintf(STDOUT_FILENO, "STACK B:\n");
-	// ! ft_push_print_stack(stack->b);
-	// ! ft_dprintf(STDOUT_FILENO, "nb:%d\n", info->nb);
+	else
+	{
+		info = kemalloc_exit(&mem, 1, sizeof(t_info), NO_PRINT);
+		info->nb = size;
+		ft_push_get_infos(tab, info);
+		if (size < 50)
+		{
+			ft_dprintf(STDOUT_FILENO, "2 to 50 TODO\n");
+		}
+		else if (size <= 250)
+		{
+			ft_push_50_250(mem, info, stack);
+		}
+		else
+		{
+			info->nb_grps = ft_push_get_sqrt(size) / 2;
+			info->grp_size = size / info->nb_grps;
+			ft_push_250_max(tab, mem, info, stack);
+		}
+	}
 }
