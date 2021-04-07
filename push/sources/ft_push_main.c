@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 11:38:19 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 12:13:59 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_push_check_arg(char **argv)
 		j = -1;
 		if (((argv[i][0] > '9') || (argv[i][0] < '0')) && (argv[i][0] != '-'))
 			return (FAILURE);
+		if (argv[i][0] == '-')
+			j++;
 		while (argv[i][++j])
 		{
 			if ((argv[i][j] > '9') || (argv[i][j] < '0'))

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 13:59:58 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 11:36:00 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,9 @@ t_commands	*ft_push_get_commands(t_list *mem, t_commands *command);
 void		ft_push_get_stack_size(t_list *mem, t_stack *stack);
 
 // ? ft_push_sort_values.c
+void		ft_push_g2(t_info *info, t_stack *stack);
 int			ft_push_lstsize(t_dish *dish);
-int			*ft_push_list_to_tab(t_list *mem, t_stack *stack, size_t size);
+int			*ft_push_list_to_tab(t_list *mem, t_dish *dish, size_t size);
 void		ft_push_chose_algo(t_list *mem, t_stack *stack);
 
 // ? ft_push_3_val.c
@@ -98,6 +99,9 @@ void		ft_push_sort_tab(int *tab, int size);
 t_info		*ft_push_get_infos(int *tab, t_info *info);
 
 // ? ft_push_to_b.c
+void		ft_push_0_x1_to_b(t_info *info, t_stack *stack);
+int			ft_push_find_idx(t_dish *dish, int value);
+void		ft_push_b_to_a(t_list *mem, t_stack *stack);
 void		ft_push_x2_max_to_b(t_info *info, t_stack *stack);
 
 #endif
