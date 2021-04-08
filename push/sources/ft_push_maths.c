@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:46:00 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:08:46 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:39:57 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_5_val(t_list *mem, t_stack *stack)
+void	ft_push_5_val(t_list **mem, t_stack *stack)
 {
 	int	itt;
 	int	*tab;
@@ -59,7 +59,7 @@ int	ft_push_get_sqrt(int nb)
 	return (sqrt);
 }
 
-void	ft_push_250_max(int *tab, t_list *mem, t_info *info, t_stack *stack)
+void	ft_push_250_max(int *tab, t_list **mem, t_info *info, t_stack *stack)
 {
 	t_group	*group;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 09:47:58 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 13:20:17 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:44:58 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ void	ft_check_print_stack(t_dish *dish)
 	}
 }
 
-t_dish	*ft_check_lstnew(t_list *mem, int content)
+t_dish	*ft_check_lstnew(t_list **mem, int content)
 {
 	t_dish	*lst;
 
-	lst = kemalloc_exit(&mem, 1, sizeof(t_dish), PRINT);
+	lst = kemalloc_exit(mem, 1, sizeof(t_dish), PRINT);
 	lst->value = content;
 	lst->next = NULL;
 	return (lst);
 }
 
-t_commands	*ft_check_command_lstnew(t_list *mem, char *text)
+t_commands	*ft_check_command_lstnew(t_list **mem, char *text)
 {
 	t_commands	*lst;
 
-	lst = kemalloc_exit(&mem, 1, sizeof(t_commands), PRINT);
+	lst = kemalloc_exit(mem, 1, sizeof(t_commands), PRINT);
 	lst->value = text;
 	lst->next = NULL;
 	return (lst);

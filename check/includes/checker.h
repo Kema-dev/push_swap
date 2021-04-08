@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:03:08 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:49:37 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int			main(int argc, char **argv);
 
 // ? ft_check_list_manip.c
 void		ft_check_print_stack(t_dish *dish);
-t_dish		*ft_check_lstnew(t_list *mem, int content);
-t_commands	*ft_check_command_lstnew(t_list *mem, char *text);
+t_dish		*ft_check_lstnew(t_list **mem, int content);
+t_commands	*ft_check_command_lstnew(t_list **mem, char *text);
 void		ft_check_lstadd_back(t_dish **alst, t_dish *new);
 void		ft_check_command_lstadd_back(t_commands **alst, t_commands *new);
 
@@ -63,8 +63,11 @@ void		ft_check_rrr(t_stack *stack);
 
 // ? ft_check_get_commands.c
 int			ft_check_cmp_commands(t_stack *stack, t_commands *buf);
-void		ft_check_apply_commands(t_list *mem, t_stack *stack, t_commands *command);
-int			ft_check_order(t_list *mem, t_stack *stack, t_commands *commands);
-t_commands	*ft_check_get_commands(t_list *mem, t_commands *command);
+void		ft_check_apply_commands(t_list **mem, t_stack *stack, t_commands *command);
+int			ft_check_order(t_list **mem, t_stack *stack, t_commands *commands);
+t_commands	*ft_check_get_commands(t_list **mem, t_commands *command);
+
+// ? ft_check_split.c
+char		**ft_check_split(t_list **mem, char const *s, char c);
 
 #endif

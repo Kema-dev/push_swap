@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/03/30 13:40:06 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/04/08 15:49:50 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRCS		=	ft_check_main.c \
 				ft_check_operation_p.c \
 				ft_check_operation_r.c \
 				ft_check_operation_rr.c \
-				ft_check_get_commands.c
+				ft_check_get_commands.c \
+				ft_check_split.c
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))
 

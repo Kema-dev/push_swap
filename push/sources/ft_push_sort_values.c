@@ -27,13 +27,13 @@ int	ft_push_lstsize(t_dish *dish)
 	return (size);
 }
 
-int	*ft_push_list_to_tab(t_list *mem, t_dish *dish, size_t size)
+int	*ft_push_list_to_tab(t_list **mem, t_dish *dish, size_t size)
 {
 	int		*tab;
 	int		i;
 	t_dish	*buf;
 
-	tab = kemalloc_exit(&mem, size, sizeof(int), NO_PRINT);
+	tab = kemalloc_exit(mem, size, sizeof(int), NO_PRINT);
 	i = 0;
 	buf = dish;
 	while (buf)
@@ -45,7 +45,7 @@ int	*ft_push_list_to_tab(t_list *mem, t_dish *dish, size_t size)
 	return (tab);
 }
 
-void	ft_push_chose_algo(t_list *mem, t_stack *stack)
+void	ft_push_chose_algo(t_list **mem, t_stack *stack)
 {
 	t_info	*info;
 	size_t	size;
@@ -64,7 +64,7 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 	}
 	else
 	{
-		info = kemalloc_exit(&mem, 1, sizeof(t_info), NO_PRINT);
+		info = kemalloc_exit(mem, 1, sizeof(t_info), NO_PRINT);
 		info->nb = size;
 		ft_push_sort_tab(tab, (int)info->nb);
 		info->nb_grps = ft_push_get_sqrt(size) / 1.6;

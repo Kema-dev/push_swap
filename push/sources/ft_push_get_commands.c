@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:47:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 11:27:37 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:41:28 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_commands	*ft_push_get_commands(t_list *mem, t_commands *command)
+t_commands	*ft_push_get_commands(t_list **mem, t_commands *command)
 {
 	int			return_value;
 	char		*text;

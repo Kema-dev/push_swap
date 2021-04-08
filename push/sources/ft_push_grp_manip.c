@@ -6,17 +6,17 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 17:42:32 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/07 18:23:33 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:41:08 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_group	*ft_push_group_lstnew(t_list *mem, int min, int max, int group_size)
+t_group	*ft_push_group_lstnew(t_list **mem, int min, int max, int group_size)
 {
 	t_group	*lst;
 
-	lst = kemalloc_exit(&mem, 1, sizeof(t_group), NO_PRINT);
+	lst = kemalloc_exit(mem, 1, sizeof(t_group), NO_PRINT);
 	lst->min = min;
 	lst->max = max;
 	lst->size = group_size;

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:47:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:03:11 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:45:54 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_check_cmp_commands(t_stack *stack, t_commands *buf)
 	return (SUCCESS);
 }
 
-void	ft_check_apply_commands(t_list *mem, t_stack *stack, \
+void	ft_check_apply_commands(t_list **mem, t_stack *stack, \
 			t_commands *command)
 {
 	t_commands	*buf;
@@ -50,12 +50,12 @@ void	ft_check_apply_commands(t_list *mem, t_stack *stack, \
 	while (buf)
 	{
 		if (ft_check_cmp_commands(stack, buf) != SUCCESS)
-			exit(ft_kema_error(WRONG_COMMAND, &mem, &free, PRINT));
+			exit(ft_kema_error(WRONG_COMMAND, mem, &free, PRINT));
 		buf = buf->next;
 	}
 }
 
-int	ft_check_order(t_list *mem, t_stack *stack, t_commands *commands)
+int	ft_check_order(t_list **mem, t_stack *stack, t_commands *commands)
 {
 	t_dish	*buf;
 	int		return_value;
@@ -74,7 +74,7 @@ int	ft_check_order(t_list *mem, t_stack *stack, t_commands *commands)
 	return (return_value);
 }
 
-t_commands	*ft_check_get_commands(t_list *mem, t_commands *command)
+t_commands	*ft_check_get_commands(t_list **mem, t_commands *command)
 {
 	char	*text;
 	size_t	i;
@@ -83,7 +83,7 @@ t_commands	*ft_check_get_commands(t_list *mem, t_commands *command)
 	while (get_next_line(STDIN_FILENO, &text))
 	{
 		if (!text)
-			exit(ft_kema_error(NO_COMMAND, &mem, &free, PRINT));
+			exit(ft_kema_error(NO_COMMAND, mem, &free, PRINT));
 		ft_check_command_lstadd_back(&command, \
 					ft_check_command_lstnew(mem, text));
 		i++;

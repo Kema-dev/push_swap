@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 14:51:58 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:50:06 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 		exit(ft_kema_error(NO_LIST, &mem, &free, PRINT));
 	if (argc > 2)
 		exit(ft_kema_error(TOO_MANY_ARGS, &mem, &free, PRINT));
-	arg = ft_split(argv[1], ' ');
+	arg = ft_check_split(&mem, argv[1], ' ');
 	if (ft_check_check_arg(arg) != SUCCESS)
 		exit(ft_kema_error(INVALID_LIST, &mem, &free, PRINT));
 	stack = kemalloc_exit(&mem, 1, sizeof(t_stack), PRINT);
@@ -76,10 +76,10 @@ int	main(int argc, char **argv)
 			exit(ft_kema_error(INVALID_LIST, &mem, &free, PRINT));
 		if (ft_check_check_duplicates(nb, stack->a) != SUCCESS)
 			exit(ft_kema_error(DUPLICATE, &mem, &free, PRINT));
-		ft_check_lstadd_back(&stack->a, ft_check_lstnew(mem, nb));
+		ft_check_lstadd_back(&stack->a, ft_check_lstnew(&mem, nb));
 	}
 	command = NULL;
-	command = ft_check_get_commands(mem, command);
-	return_value = ft_check_order(mem, stack, command);
+	command = ft_check_get_commands(&mem, command);
+	return_value = ft_check_order(&mem, stack, command);
 	exit(ft_kema_error(return_value, &mem, &free, PRINT));
 }

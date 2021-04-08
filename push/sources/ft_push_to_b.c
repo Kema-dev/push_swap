@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:00:49 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:09:19 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:40:20 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_push_find_idx(t_dish *dish, int value)
 	return (i);
 }
 
-void	ft_push_b_to_a(t_list *mem, t_stack *stack)
+void	ft_push_b_to_a(t_list **mem, t_stack *stack)
 {
 	int	itt;
 	int	*tab;

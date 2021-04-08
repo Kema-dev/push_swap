@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 14:52:01 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:54:03 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
 		exit(ft_kema_error(NO_LIST, &mem, &free, NO_PRINT));
 	if (argc > 2)
 		exit(ft_kema_error(TOO_MANY_ARGS, &mem, &free, NO_PRINT));
-	arg = ft_split(argv[1], ' ');
+	arg = ft_push_split(&mem, argv[1], ' ');
 	if (ft_push_check_arg(arg) != SUCCESS)
 		exit(ft_kema_error(INVALID_LIST, &mem, &free, NO_PRINT));
 	stack = kemalloc_exit(&mem, 1, sizeof(t_stack), NO_PRINT);
@@ -74,10 +74,10 @@ int	main(int argc, char **argv)
 			exit(ft_kema_error(INVALID_LIST, &mem, &free, NO_PRINT));
 		if (ft_push_check_duplicates(nb, stack->a) != SUCCESS)
 			exit(ft_kema_error(DUPLICATE, &mem, &free, NO_PRINT));
-		ft_push_lstadd_back(&stack->a, ft_push_lstnew(mem, nb));
+		ft_push_lstadd_back(&stack->a, ft_push_lstnew(&mem, nb));
 	}
 	if (ft_push_check_sort(stack->a) == SUCCESS)
 		exit(ft_kema_error(SUCCESS, &mem, &free, NO_PRINT));
-	ft_push_chose_algo(mem, stack);
+	ft_push_chose_algo(&mem, stack);
 	exit(ft_kema_error(SUCCESS, &mem, &free, NO_PRINT));
 }
