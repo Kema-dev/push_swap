@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:46:00 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 14:52:01 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:08:46 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_push_5_val(t_list *mem, t_stack *stack)
 	ft_push_sort_tab(tab, ft_push_lstsize(stack->a));
 	itt = 0;
 	size = ft_push_lstsize(stack->a);
-	i= 0;
+	i = 0;
 	while (size > 3)
 	{
 		itt = ft_push_find_idx(stack->a, tab[i++]);
@@ -68,10 +68,12 @@ void	ft_push_250_max(int *tab, t_list *mem, t_info *info, t_stack *stack)
 	i = 0;
 	while (i < info->nb_grps)
 	{
-		ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[i * info->grp_size], tab[(i + 1) * info->grp_size - 1], info->grp_size));
+		ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[i *info->grp_size], \
+				tab[(i + 1) *info->grp_size - 1], info->grp_size));
 		i++;
 	}
-	ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[i * info->grp_size], tab[info->nb - 1], info->nb - i * info->grp_size));
+	ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[i * info->grp_size], \
+			tab[info->nb - 1], info->nb - i * info->grp_size));
 	i = 0;
 	while (i < info->nb_grps)
 	{

@@ -6,13 +6,13 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:00:49 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 11:32:29 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:09:19 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_push_find_idx(t_dish *dish, int value)
+int	ft_push_find_idx(t_dish *dish, int value)
 {
 	t_dish	*buf;
 	size_t	i;
@@ -22,7 +22,7 @@ int		ft_push_find_idx(t_dish *dish, int value)
 	while (buf)
 	{
 		if (buf->value == value)
-			break;
+			break ;
 		i++;
 		buf = buf->next;
 	}

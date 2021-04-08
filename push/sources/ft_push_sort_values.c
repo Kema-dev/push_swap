@@ -66,7 +66,7 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 	{
 		info = kemalloc_exit(&mem, 1, sizeof(t_info), NO_PRINT);
 		info->nb = size;
-		ft_push_get_infos(tab, info);
+		ft_push_sort_tab(tab, (int)info->nb);
 		info->nb_grps = ft_push_get_sqrt(size) / 1.6;
 		info->grp_size = size / info->nb_grps;
 		ft_push_250_max(tab, mem, info, stack);

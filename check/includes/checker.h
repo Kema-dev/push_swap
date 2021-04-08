@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/03/31 14:32:49 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:03:08 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void		ft_check_rrb(t_stack *stack);
 void		ft_check_rrr(t_stack *stack);
 
 // ? ft_check_get_commands.c
+int			ft_check_cmp_commands(t_stack *stack, t_commands *buf);
 void		ft_check_apply_commands(t_list *mem, t_stack *stack, t_commands *command);
 int			ft_check_order(t_list *mem, t_stack *stack, t_commands *commands);
 t_commands	*ft_check_get_commands(t_list *mem, t_commands *command);

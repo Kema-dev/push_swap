@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 14:52:00 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:07:14 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,6 @@ typedef struct s_info {
 	int		min;
 	int		max;
 	int		nb;
-	int		group_1_low;
-	int		group_1_high;
-	bool	group_1_dir;
-	size_t	group_1_size;
-	int		group_2_low;
-	int		group_2_high;
-	bool	group_2_dir;
-	size_t	group_2_size;
-	int		group_3_low;
-	int		group_3_high;
-	bool	group_3_dir;
-	size_t	group_3_size;
 	int		nb_grps;
 	int		grp_size;
 }	t_info;
@@ -95,8 +83,6 @@ t_commands	*ft_push_get_commands(t_list *mem, t_commands *command);
 void		ft_push_get_stack_size(t_list *mem, t_stack *stack);
 
 // ? ft_push_sort_values.c
-void		ft_push_finish_rotate(t_info *info, t_stack *stack);
-void		ft_push_g2(t_info *info, t_stack *stack);
 int			ft_push_lstsize(t_dish *dish);
 int			*ft_push_list_to_tab(t_list *mem, t_dish *dish, size_t size);
 void		ft_push_chose_algo(t_list *mem, t_stack *stack);
@@ -107,7 +93,6 @@ void		ft_push_3_val(t_stack *stack, int *tab);
 
 // ? ft_push_get_infos.c
 void		ft_push_sort_tab(int *tab, int size);
-t_info		*ft_push_get_infos(int *tab, t_info *info);
 
 // ? ft_push_to_b.c
 int			ft_push_find_idx(t_dish *dish, int value);
