@@ -6,11 +6,48 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:46:00 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 12:44:00 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 14:52:01 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_push_5_val(t_list *mem, t_stack *stack)
+{
+	int	itt;
+	int	*tab;
+	int	i;
+	int	size;
+
+	tab = ft_push_list_to_tab(mem, stack->a, ft_push_lstsize(stack->a));
+	ft_push_sort_tab(tab, ft_push_lstsize(stack->a));
+	itt = 0;
+	size = ft_push_lstsize(stack->a);
+	i= 0;
+	while (size > 3)
+	{
+		itt = ft_push_find_idx(stack->a, tab[i++]);
+		if (itt < size / 2)
+		{
+			while (itt-- > 0)
+				ft_push_ra(stack);
+			ft_push_pb(stack);
+		}
+		else
+		{
+			itt = size - itt;
+			while (itt-- > 0)
+				ft_push_rra(stack);
+			ft_push_pb(stack);
+		}
+		size--;
+	}
+	free(tab);
+	size = ft_push_lstsize(stack->a);
+	tab = ft_push_list_to_tab(mem, stack->a, size);
+	ft_push_3_val(stack, tab);
+	ft_push_b_to_a(mem, stack);
+}
 
 int	ft_push_get_sqrt(int nb)
 {
@@ -27,7 +64,6 @@ void	ft_push_250_max(int *tab, t_list *mem, t_info *info, t_stack *stack)
 	t_group	*group;
 	int		i;
 
-	(void)stack;
 	group = NULL;
 	i = 0;
 	while (i < info->nb_grps)

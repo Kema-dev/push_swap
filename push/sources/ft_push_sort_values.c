@@ -58,16 +58,16 @@ void	ft_push_chose_algo(t_list *mem, t_stack *stack)
 		ft_push_3_val(stack, tab);
 		return ;
 	}
-	//else if (size <= 5)
-	//{
-	//	ft_push_5_val(stack, tab);
-	//}
+	else if (size <= 5)
+	{
+		ft_push_5_val(mem, stack);
+	}
 	else
 	{
 		info = kemalloc_exit(&mem, 1, sizeof(t_info), NO_PRINT);
 		info->nb = size;
 		ft_push_get_infos(tab, info);
-		info->nb_grps = ft_push_get_sqrt(size) / 1.5;
+		info->nb_grps = ft_push_get_sqrt(size) / 1.6;
 		info->grp_size = size / info->nb_grps;
 		ft_push_250_max(tab, mem, info, stack);
 	}

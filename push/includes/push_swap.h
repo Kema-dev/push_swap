@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 12:42:58 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 14:52:00 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,8 @@ void		ft_push_sort_tab(int *tab, int size);
 t_info		*ft_push_get_infos(int *tab, t_info *info);
 
 // ? ft_push_to_b.c
-void		ft_push_0_x1_to_b(t_info *info, t_stack *stack);
 int			ft_push_find_idx(t_dish *dish, int value);
 void		ft_push_b_to_a(t_list *mem, t_stack *stack);
-void		ft_push_x2_max_to_b(t_info *info, t_stack *stack);
 
 // ? ft_push_maths.c
 int			ft_push_get_sqrt(int nb);
@@ -121,7 +119,7 @@ void		ft_push_250_max(int *tab, t_list *mem, t_info *info, t_stack *stack);
 void		ft_push_sort_group(t_info *info, t_group *group, t_stack *stack);
 
 // ? ft_push_grp_manip.c
-void		ft_push_5_val(t_stack *stack, int *tab);
+void		ft_push_5_val(t_list *mem, t_stack *stack);
 t_group		*ft_push_group_lstnew(t_list *mem, int min, int max, int group_size);
 void		ft_push_group_lstadd_back(t_group **alst, t_group *new);
 void		ft_push_group_lstadd_front(t_group **alst, t_group *new);

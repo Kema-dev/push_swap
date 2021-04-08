@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:47:55 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/06 11:24:26 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 14:47:12 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@
 # define STR_NO_COMMAND			"No command provided\n"
 # define DUPLICATE				-8
 # define STR_DUPLICATE			"There is a duplicate in the list\n"
+# define TOO_MANY_ARGS			-9
+# define STR_TOO_MANY_ARGS		"Too many args for function call\n"
 
 #endif
