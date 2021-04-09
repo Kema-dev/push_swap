@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:43:05 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 12:32:02 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_info {
 }	t_info;
 
 // ? main.c
+char		*ft_push_strjoin(char *s1, char const *s2);
 int			ft_push_check_arg(char **argv);
 int			main(int argc, char **argv);
 

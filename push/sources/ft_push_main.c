@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:54:03 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 12:32:17 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,21 @@ int	ft_push_check_arg(char **argv)
 	return (SUCCESS);
 }
 
+char	*ft_push_strjoin(char *s1, char const *s2)
+{
+	size_t	tot_len;
+	char	*out;
+
+	tot_len = ft_strlen(s1) + ft_strlen(s2);
+	out = ft_calloc(sizeof(char), (tot_len + 1));
+	if (!out)
+		return (NULL);
+	ft_strcat(out, (char *)s1);
+	ft_strcat(out, (char *)s2);
+	free(s1);
+	return (out);
+}
+
 int	main(int argc, char **argv)
 {
 	ssize_t		i;
@@ -55,11 +70,17 @@ int	main(int argc, char **argv)
 	t_stack		*stack;
 	t_list		*mem;
 	char		**arg;
+	char		*str;
 
 	if (argc < 2)
 		exit(ft_kema_error(NO_LIST, &mem, &free, NO_PRINT));
-	if (argc > 2)
-		exit(ft_kema_error(TOO_MANY_ARGS, &mem, &free, NO_PRINT));
+	str = NULL;
+	i = 0;
+	while (argv[++i])
+	{
+		str = ft_push_strjoin(str, argv[i]);
+		str = ft_push_strjoin(str, " ");
+	}
 	arg = ft_push_split(&mem, argv[1], ' ');
 	if (ft_push_check_arg(arg) != SUCCESS)
 		exit(ft_kema_error(INVALID_LIST, &mem, &free, NO_PRINT));

@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:50:06 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 12:34:07 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,33 @@ int	ft_check_check_arg(char **argv)
 	return (SUCCESS);
 }
 
+char	*ft_check_strjoin(char *s1, char const *s2)
+{
+	size_t	tot_len;
+	char	*out;
+
+	tot_len = ft_strlen(s1) + ft_strlen(s2);
+	out = ft_calloc(sizeof(char), (tot_len + 1));
+	if (!out)
+		return (NULL);
+	ft_strcat(out, (char *)s1);
+	ft_strcat(out, (char *)s2);
+	free(s1);
+	return (out);
+}
+
+void	ft_check_free_command(t_commands **command)
+{
+	t_commands	*buf;
+
+	buf = *command;
+	while (buf)
+	{
+		free(buf->value);
+		buf = buf->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	ssize_t		i;
@@ -57,12 +84,18 @@ int	main(int argc, char **argv)
 	int			return_value;
 	int			nb;
 	char		**arg;
+	char		*str;
 
 	if (argc < 2)
 		exit(ft_kema_error(NO_LIST, &mem, &free, PRINT));
-	if (argc > 2)
-		exit(ft_kema_error(TOO_MANY_ARGS, &mem, &free, PRINT));
-	arg = ft_check_split(&mem, argv[1], ' ');
+	i = 0;
+	str = NULL;
+	while (argv[++i])
+	{
+		str = ft_check_strjoin(str, argv[i]);
+		str = ft_check_strjoin(str, " ");
+	}
+	arg = ft_check_split(&mem, str, ' ');
 	if (ft_check_check_arg(arg) != SUCCESS)
 		exit(ft_kema_error(INVALID_LIST, &mem, &free, PRINT));
 	stack = kemalloc_exit(&mem, 1, sizeof(t_stack), PRINT);
@@ -81,5 +114,7 @@ int	main(int argc, char **argv)
 	command = NULL;
 	command = ft_check_get_commands(&mem, command);
 	return_value = ft_check_order(&mem, stack, command);
+	// ! ft_check_print_stack(stack->a);
+	ft_check_free_command(&command);
 	exit(ft_kema_error(return_value, &mem, &free, PRINT));
 }
