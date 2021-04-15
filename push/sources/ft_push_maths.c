@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:46:00 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/08 15:39:57 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 14:04:40 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	ft_push_5_val(t_list **mem, t_stack *stack)
 		}
 		size--;
 	}
-	free(tab);
 	size = ft_push_lstsize(stack->a);
 	tab = ft_push_list_to_tab(mem, stack->a, size);
 	ft_push_3_val(stack, tab);
@@ -72,7 +71,7 @@ void	ft_push_250_max(int *tab, t_list **mem, t_info *info, t_stack *stack)
 				tab[(i + 1) *info->grp_size - 1], info->grp_size));
 		i++;
 	}
-	ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[i * info->grp_size], \
+	ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[info->nb - i * info->grp_size], \
 			tab[info->nb - 1], info->nb - i * info->grp_size));
 	i = 0;
 	while (i < info->nb_grps)

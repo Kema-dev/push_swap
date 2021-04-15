@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/09 12:32:17 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 12:53:00 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,18 @@ int	main(int argc, char **argv)
 	char		**arg;
 	char		*str;
 
+	mem = NULL;
 	if (argc < 2)
 		exit(ft_kema_error(NO_LIST, &mem, &free, NO_PRINT));
-	str = NULL;
 	i = 0;
+	str = NULL;
 	while (argv[++i])
 	{
 		str = ft_push_strjoin(str, argv[i]);
 		str = ft_push_strjoin(str, " ");
 	}
-	arg = ft_push_split(&mem, argv[1], ' ');
+	arg = ft_push_split(&mem, str, ' ');
+	free(str);
 	if (ft_push_check_arg(arg) != SUCCESS)
 		exit(ft_kema_error(INVALID_LIST, &mem, &free, NO_PRINT));
 	stack = kemalloc_exit(&mem, 1, sizeof(t_stack), NO_PRINT);
@@ -100,5 +102,9 @@ int	main(int argc, char **argv)
 	if (ft_push_check_sort(stack->a) == SUCCESS)
 		exit(ft_kema_error(SUCCESS, &mem, &free, NO_PRINT));
 	ft_push_chose_algo(&mem, stack);
+	//ft_dprintf(STDOUT_FILENO, "STACK A:\n");
+	//ft_push_print_stack(stack->a);
+	//ft_dprintf(STDOUT_FILENO, "STACK B:\n");
+	//ft_push_print_stack(stack->b);
 	exit(ft_kema_error(SUCCESS, &mem, &free, NO_PRINT));
 }

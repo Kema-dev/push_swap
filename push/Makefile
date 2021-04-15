@@ -6,7 +6,7 @@
 #    By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 10:55:11 by jjourdan          #+#    #+#              #
-#    Updated: 2021/04/09 11:16:42 by jjourdan         ###   ########lyon.fr    #
+#    Updated: 2021/04/09 13:59:32 by jjourdan         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@
 
 NAME		=	push_swap
 
-CC			=	gcc
+CC			=	gcc #-fsanitize=address
 
 RM			=	rm -f
 
