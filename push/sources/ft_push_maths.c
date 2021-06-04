@@ -12,8 +12,11 @@
 
 #include "push_swap.h"
 
-void	ft_push_5_val_pt_2(int size, int itt, int i, t_stack *stack, int *tab)
+void	ft_push_5_val_pt_2(int size, int itt, t_stack *stack, int *tab)
 {
+	int	i;
+	
+	i = 0;
 	while (size > 3)
 	{
 		itt = ft_push_find_idx(stack->a, tab[i++]);
@@ -45,8 +48,7 @@ void	ft_push_5_val(t_list **mem, t_stack *stack)
 	ft_push_sort_tab(tab, ft_push_lstsize(stack->a));
 	itt = 0;
 	size = ft_push_lstsize(stack->a);
-	i = 0;
-	ft_push_5_val_pt_2(size, itt, i, stack, tab);
+	ft_push_5_val_pt_2(size, itt, stack, tab);
 	size = ft_push_lstsize(stack->a);
 	tab = ft_push_list_to_tab(mem, stack->a, size);
 	ft_push_3_val(stack, tab, size);
