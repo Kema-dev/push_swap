@@ -66,7 +66,8 @@ void		ft_check_rrr(t_stack *stack);
 // ? ft_check_get_commands.c
 char		*ft_check_strjoin(char *s1, char const *s2);
 int			ft_check_cmp_commands(t_stack *stack, t_commands *buf);
-void		ft_check_apply_commands(t_list **mem, t_stack *stack, t_commands *command);
+void		ft_check_apply_commands(t_list **mem, t_stack *stack, \
+			t_commands *command);
 int			ft_check_order(t_list **mem, t_stack *stack, t_commands *commands);
 t_commands	*ft_check_get_commands(t_list **mem, t_commands *command);
 
