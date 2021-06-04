@@ -102,7 +102,7 @@ void		ft_push_b_to_a_pt_2(int size, int itt, t_stack *stack, int *tab);
 void		ft_push_b_to_a(t_list **mem, t_stack *stack);
 
 // ? ft_push_maths.c
-void		ft_push_5_val_pt_2(int size, int itt, int i, t_stack *stack, int *tab);
+void		ft_push_5_val_pt_2(int size, int itt, t_stack *stack, int *tab);
 void		ft_push_5_val(t_list **mem, t_stack *stack);
 int			ft_push_get_sqrt(int nb);
 void		ft_push_250_max(int *tab, t_list **mem, t_info *info, \
