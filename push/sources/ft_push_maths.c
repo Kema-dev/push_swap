@@ -6,24 +6,14 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:46:00 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/09 14:04:40 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/06/04 11:58:12 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_5_val(t_list **mem, t_stack *stack)
+void	ft_push_5_val_pt_2(int size, int itt, int i, t_stack *stack, int *tab)
 {
-	int	itt;
-	int	*tab;
-	int	i;
-	int	size;
-
-	tab = ft_push_list_to_tab(mem, stack->a, ft_push_lstsize(stack->a));
-	ft_push_sort_tab(tab, ft_push_lstsize(stack->a));
-	itt = 0;
-	size = ft_push_lstsize(stack->a);
-	i = 0;
 	while (size > 3)
 	{
 		itt = ft_push_find_idx(stack->a, tab[i++]);
@@ -42,9 +32,24 @@ void	ft_push_5_val(t_list **mem, t_stack *stack)
 		}
 		size--;
 	}
+}
+
+void	ft_push_5_val(t_list **mem, t_stack *stack)
+{
+	int	itt;
+	int	*tab;
+	int	i;
+	int	size;
+
+	tab = ft_push_list_to_tab(mem, stack->a, ft_push_lstsize(stack->a));
+	ft_push_sort_tab(tab, ft_push_lstsize(stack->a));
+	itt = 0;
+	size = ft_push_lstsize(stack->a);
+	i = 0;
+	ft_push_5_val_pt_2(size, itt, i, stack, tab);
 	size = ft_push_lstsize(stack->a);
 	tab = ft_push_list_to_tab(mem, stack->a, size);
-	ft_push_3_val(stack, tab);
+	ft_push_3_val(stack, tab, size);
 	ft_push_b_to_a(mem, stack);
 }
 
@@ -67,11 +72,13 @@ void	ft_push_250_max(int *tab, t_list **mem, t_info *info, t_stack *stack)
 	i = 0;
 	while (i < info->nb_grps)
 	{
-		ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[i *info->grp_size], \
+		ft_push_group_lstadd_back(&group, \
+				ft_push_group_lstnew(mem, tab[i * info->grp_size], \
 				tab[(i + 1) *info->grp_size - 1], info->grp_size));
 		i++;
 	}
-	ft_push_group_lstadd_back(&group, ft_push_group_lstnew(mem, tab[info->nb - i * info->grp_size], \
+	ft_push_group_lstadd_back(&group, \
+			ft_push_group_lstnew(mem, tab[info->nb - i * info->grp_size], \
 			tab[info->nb - 1], info->nb - i * info->grp_size));
 	i = 0;
 	while (i < info->nb_grps)

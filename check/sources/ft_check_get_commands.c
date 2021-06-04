@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:47:34 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/09 12:28:28 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/06/04 11:03:08 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ft_check_apply_commands(t_list **mem, t_stack *stack, \
 	t_commands	*buf;
 
 	buf = command;
-
 	while (buf)
 	{
 		if (ft_check_cmp_commands(stack, buf) != SUCCESS)
@@ -91,4 +90,19 @@ t_commands	*ft_check_get_commands(t_list **mem, t_commands *command)
 	}
 	free(text);
 	return (command);
+}
+
+char	*ft_check_strjoin(char *s1, char const *s2)
+{
+	size_t	tot_len;
+	char	*out;
+
+	tot_len = ft_strlen(s1) + ft_strlen(s2);
+	out = ft_calloc(sizeof(char), (tot_len + 1));
+	if (!out)
+		return (NULL);
+	ft_strcat(out, (char *)s1);
+	ft_strcat(out, (char *)s2);
+	free(s1);
+	return (out);
 }

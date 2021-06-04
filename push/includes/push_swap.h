@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/09 12:32:02 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/06/04 11:57:31 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_info {
 // ? main.c
 char		*ft_push_strjoin(char *s1, char const *s2);
 int			ft_push_check_arg(char **argv);
+void		main_pt_2(t_stack *stack, t_list **mem, char **arg);
 int			main(int argc, char **argv);
 
 // ? ft_push_list_manip.c
@@ -90,23 +91,27 @@ void		ft_push_chose_algo(t_list **mem, t_stack *stack);
 
 // ? ft_push_3_val.c
 int			ft_push_check_sort(t_dish *val);
-void		ft_push_3_val(t_stack *stack, int *tab);
+void		ft_push_3_val(t_stack *stack, int *tab, int size);
 
 // ? ft_push_get_infos.c
 void		ft_push_sort_tab(int *tab, int size);
 
 // ? ft_push_to_b.c
 int			ft_push_find_idx(t_dish *dish, int value);
+void		ft_push_b_to_a_pt_2(int size, int itt, t_stack *stack, int *tab);
 void		ft_push_b_to_a(t_list **mem, t_stack *stack);
 
 // ? ft_push_maths.c
+void		ft_push_5_val_pt_2(int size, int itt, int i, t_stack *stack, int *tab);
+void		ft_push_5_val(t_list **mem, t_stack *stack);
 int			ft_push_get_sqrt(int nb);
-void		ft_push_250_max(int *tab, t_list **mem, t_info *info, t_stack *stack);
+void		ft_push_250_max(int *tab, t_list **mem, t_info *info, \
+					t_stack *stack);
 void		ft_push_sort_group(t_info *info, t_group *group, t_stack *stack);
 
 // ? ft_push_grp_manip.c
-void		ft_push_5_val(t_list **mem, t_stack *stack);
-t_group		*ft_push_group_lstnew(t_list **mem, int min, int max, int group_size);
+t_group		*ft_push_group_lstnew(t_list **mem, int min, int max, \
+					int group_size);
 void		ft_push_group_lstadd_back(t_group **alst, t_group *new);
 void		ft_push_group_lstadd_front(t_group **alst, t_group *new);
 

@@ -55,7 +55,7 @@ void	ft_push_chose_algo(t_list **mem, t_stack *stack)
 	tab = ft_push_list_to_tab(mem, stack->a, size);
 	if (size <= 3)
 	{
-		ft_push_3_val(stack, tab);
+		ft_push_3_val(stack, tab, size);
 		return ;
 	}
 	else if (size <= 5)

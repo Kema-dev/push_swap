@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:28:31 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/09 11:33:36 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/06/04 11:03:57 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_commands {
 void		ft_check_free_command(t_commands **command);
 int			ft_check_check_duplicates(int nb, t_dish *a);
 int			ft_check_check_arg(char **argv);
+int			main_pt_2(t_stack *stack, t_list **mem, char **arg);
 int			main(int argc, char **argv);
 
 // ? ft_check_list_manip.c
@@ -63,6 +64,7 @@ void		ft_check_rrb(t_stack *stack);
 void		ft_check_rrr(t_stack *stack);
 
 // ? ft_check_get_commands.c
+char		*ft_check_strjoin(char *s1, char const *s2);
 int			ft_check_cmp_commands(t_stack *stack, t_commands *buf);
 void		ft_check_apply_commands(t_list **mem, t_stack *stack, t_commands *command);
 int			ft_check_order(t_list **mem, t_stack *stack, t_commands *commands);

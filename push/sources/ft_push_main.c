@@ -6,7 +6,7 @@
 /*   By: jjourdan <jjourdan@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:38:50 by jjourdan          #+#    #+#             */
-/*   Updated: 2021/04/09 12:53:00 by jjourdan         ###   ########lyon.fr   */
+/*   Updated: 2021/06/04 12:02:03 by jjourdan         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,39 @@ char	*ft_push_strjoin(char *s1, char const *s2)
 	return (out);
 }
 
+void	main_pt_2(t_stack *stack, t_list **mem, char **arg)
+{
+	ssize_t	i;
+	int		nb;
+
+	stack = kemalloc_exit(mem, 1, sizeof(t_stack), PRINT);
+	stack->a = NULL;
+	stack->b = NULL;
+	i = -1;
+	while (arg[++i])
+	{
+		nb = ft_atoi(arg[i]);
+		if ((nb == 0) && (arg[i][0] != '0'))
+			exit(ft_kema_error(INVALID_LIST, mem, &free, PRINT));
+		if (ft_push_check_duplicates(nb, stack->a) != SUCCESS)
+			exit(ft_kema_error(DUPLICATE, mem, &free, PRINT));
+		ft_push_lstadd_back(&stack->a, ft_push_lstnew(mem, nb));
+	}
+	if (ft_push_check_sort(stack->a) == SUCCESS)
+		exit(ft_kema_error(SUCCESS, mem, &free, NO_PRINT));
+	ft_push_chose_algo(mem, stack);
+}
+
 int	main(int argc, char **argv)
 {
 	ssize_t		i;
-	int			nb;
 	t_stack		*stack;
 	t_list		*mem;
 	char		**arg;
 	char		*str;
 
 	mem = NULL;
+	stack = NULL;
 	if (argc < 2)
 		exit(ft_kema_error(NO_LIST, &mem, &free, NO_PRINT));
 	i = 0;
@@ -85,26 +108,7 @@ int	main(int argc, char **argv)
 	arg = ft_push_split(&mem, str, ' ');
 	free(str);
 	if (ft_push_check_arg(arg) != SUCCESS)
-		exit(ft_kema_error(INVALID_LIST, &mem, &free, NO_PRINT));
-	stack = kemalloc_exit(&mem, 1, sizeof(t_stack), NO_PRINT);
-	stack->a = NULL;
-	stack->b = NULL;
-	i = -1;
-	while (arg[++i])
-	{
-		nb = ft_atoi(arg[i]);
-		if ((nb == 0) && (arg[i][0] != '0'))
-			exit(ft_kema_error(INVALID_LIST, &mem, &free, NO_PRINT));
-		if (ft_push_check_duplicates(nb, stack->a) != SUCCESS)
-			exit(ft_kema_error(DUPLICATE, &mem, &free, NO_PRINT));
-		ft_push_lstadd_back(&stack->a, ft_push_lstnew(&mem, nb));
-	}
-	if (ft_push_check_sort(stack->a) == SUCCESS)
-		exit(ft_kema_error(SUCCESS, &mem, &free, NO_PRINT));
-	ft_push_chose_algo(&mem, stack);
-	//ft_dprintf(STDOUT_FILENO, "STACK A:\n");
-	//ft_push_print_stack(stack->a);
-	//ft_dprintf(STDOUT_FILENO, "STACK B:\n");
-	//ft_push_print_stack(stack->b);
+		exit(ft_kema_error(INVALID_LIST, &mem, &free, PRINT));
+	main_pt_2(stack, &mem, arg);
 	exit(ft_kema_error(SUCCESS, &mem, &free, NO_PRINT));
 }
